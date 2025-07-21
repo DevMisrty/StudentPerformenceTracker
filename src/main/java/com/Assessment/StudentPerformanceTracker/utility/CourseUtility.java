@@ -3,6 +3,8 @@ package com.Assessment.StudentPerformanceTracker.utility;
 import com.Assessment.StudentPerformanceTracker.Model.Course;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseUtility {
 
@@ -62,5 +64,21 @@ public class CourseUtility {
         }catch(SQLException e){
             System.out.println("Inside EnrollStudent " + e.getMessage());
         }
+    }
+
+    public static List<Course> getAllCourses(){
+        List<Course> list = new ArrayList<>();
+        try(Connection con = DriverManager.getConnection(url,"root","root")){
+            String query = "select * from course ";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                list.add(new Course(rs.getInt("id"),
+                        rs.getString("course_name")));
+            }
+        }catch(SQLException e){
+            System.out.println("Inside getAllCourse -> CourseUtility " + e.getMessage());
+        }
+        return list;
     }
 }

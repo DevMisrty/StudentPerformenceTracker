@@ -1,7 +1,15 @@
 package com.Assessment.StudentPerformanceTracker.Service;
 
 import com.Assessment.StudentPerformanceTracker.Model.Marks;
+import com.Assessment.StudentPerformanceTracker.Model.Student;
+import com.Assessment.StudentPerformanceTracker.Model.StudentDetails;
 import com.Assessment.StudentPerformanceTracker.utility.MarksUtility;
+import com.Assessment.StudentPerformanceTracker.utility.StudentUtility;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class MarksService {
 

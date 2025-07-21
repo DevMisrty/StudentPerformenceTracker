@@ -17,6 +17,7 @@ public class StudentDataController {
         return MarksUtility.getAboveAverageStudents();
     }
 
+    //used for later purpose
     @RequestMapping("/getAverageMarksperCourse")
     public List<AvgMarksCourse> getAverageMarks(){
         return MarksUtility.getAverageMarkPerSubject();
@@ -32,4 +33,6 @@ public class StudentDataController {
         return MarksUtility.getStudentDetails();
 
     }
+
+
 }
