@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Marks {
-    int studentId;
-    int courseId;
-    int marks;
+public class StudentDetails {
+
+    String firstName;
+    String lastName;
+    String courseName;
+    double grade;
 }

@@ -1,14 +1,13 @@
 package com.Assessment.StudentPerformanceTracker.Model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
-@AllArgsConstructor
+@NoArgsConstructor@AllArgsConstructor
 @Data
-public class Marks {
-    int studentId;
+public class AvgMarksCourse {
     int courseId;
-    int marks;
+    double grades;
 }

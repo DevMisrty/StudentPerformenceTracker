@@ -82,7 +82,7 @@ public class HomeController {
             @RequestParam int courseId,
             @RequestParam int obtainedMarks
     ){
-        MarksService.insertData(new Marks(Integer.parseInt(studentId),courseId,MarksService.getGrade(obtainedMarks)));
+        MarksService.insertData(new Marks(Integer.parseInt(studentId),courseId,obtainedMarks));
         return "home";
     }
 
