@@ -22,13 +22,8 @@ public class StreamService {
             return o2.getMarks()-o1.getMarks();
         };
 
-    static {
-        students= StudentUtility.getAllStudentList();
-        marks= MarksUtility.getAllData();
-        courses = CourseUtility.getAllCourses();
-    }
-
     public static Double getAverageGrade(){
+        marks= MarksUtility.getAllData();
         return marks.stream()
                 .filter(students -> students.getMarks() != 0.0)
                 .collect(Collectors.averagingDouble(Marks::getMarks));
@@ -44,6 +39,8 @@ public class StreamService {
     }
 
     public static Map<Integer, List<Student>> getGradeStudentMap(){
+        students= StudentUtility.getAllStudentList();
+        marks= MarksUtility.getAllData();
         Map<Integer,Student> studentMap = new HashMap<>();
         students.forEach(student -> studentMap.put(student.getId(), student));
         Map<Integer,List<Student>> map = new HashMap<>();
@@ -63,6 +60,8 @@ public class StreamService {
     }
 
     public static Map<Integer,List<Marks>>  getTopRankersPerCourse(){
+
+        marks= MarksUtility.getAllData();
         Map<Integer,List<Marks>> map = new HashMap<>();
         Map<Integer,List<Marks>> res = new HashMap<>();
         marks.stream()
