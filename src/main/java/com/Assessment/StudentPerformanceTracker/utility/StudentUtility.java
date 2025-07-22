@@ -1,14 +1,18 @@
 package com.Assessment.StudentPerformanceTracker.utility;
 
 import com.Assessment.StudentPerformanceTracker.Model.Student;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import  java.sql.*;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentUtility {
-
-    static String url =  "jdbc:mysql://localhost:3306/studentmanagement";
+    
+    private static final Logger logger = LoggerFactory.getLogger(StudentUtility.class);
+    
+    static String url = "jdbc:mysql://localhost:3306/studentmanagement";
 
     public  static void addStudent(Student s){
         try{
@@ -22,7 +26,7 @@ public class StudentUtility {
             con.close();
 
         }catch(SQLException e){
-            System.out.println("Inside addStudent" + e.getMessage());
+            logger.error("Error in addStudent: {}", e.getMessage(), e);
         }
     }
 
@@ -37,7 +41,7 @@ public class StudentUtility {
             pst.execute();
             con.close();
         }catch(SQLException e){
-            System.out.println("Inside updateStudent" + e.getMessage());
+            logger.error("Error in updateStudent: {}", e.getMessage(), e);
         }
     }
 
@@ -50,7 +54,7 @@ public class StudentUtility {
             pst.execute();
             con.close();
         }catch(SQLException e){
-            System.out.println("inside deleteStudent" + e.getMessage());
+            logger.error("Error in deleteStudent: {}", e.getMessage(), e);
         }
     }
 
@@ -67,7 +71,7 @@ public class StudentUtility {
             }
 
         }catch (SQLException e){
-            System.out.println("Inside getALlStudentList-> StudentUtility " + e.getMessage());
+            logger.error("Error in getAllStudentList: {}", e.getMessage(), e);
         }
         return list;
     }

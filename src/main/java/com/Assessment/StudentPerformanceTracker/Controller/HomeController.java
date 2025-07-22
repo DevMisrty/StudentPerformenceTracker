@@ -18,7 +18,6 @@ public class HomeController {
 
     @GetMapping("/registerStudent")
     public String addStudent(){
-        System.out.println("Calling Add student");
         return "addStudent";
     }
 
@@ -34,19 +33,16 @@ public class HomeController {
 
     @RequestMapping("/deleteStudent")
     public String deleteStudent(){
-        System.out.println("Inside delete Student");
         return "deleteStudent";
     }
     @RequestMapping("/deleteStudentUsingId")
     public String deleteStudentID(@RequestParam("search") String search){
-
         StudentService.deleteStudent(Integer.parseInt(search));
         return "home";
     }
 
     @RequestMapping("/updateStudent")
     public String updateStudent(){
-        System.out.println("Inside update Student");
         return "updateStudent";
     }
 
@@ -60,7 +56,6 @@ public class HomeController {
 
     @RequestMapping("/enrollCourse")
     public String enrollCourse(){
-        System.out.println("Inside enroll Course ");
         return "enrollCourse" ;
     }
 
@@ -84,5 +79,4 @@ public class HomeController {
         MarksService.insertData(new Marks(Integer.parseInt(studentId),courseId,obtainedMarks));
         return "home";
     }
-
 }

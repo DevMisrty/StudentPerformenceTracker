@@ -4,6 +4,8 @@ import com.Assessment.StudentPerformanceTracker.Model.Course;
 import com.Assessment.StudentPerformanceTracker.Model.Marks;
 import com.Assessment.StudentPerformanceTracker.Model.Student;
 import com.Assessment.StudentPerformanceTracker.Model.StudentCourse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,8 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 public class StreamUtility {
-
-    static String url ="jdbc:mysql://localhost:3306/studentmanagement";
+    
+    private static final Logger logger = LoggerFactory.getLogger(StreamUtility.class);
+    
+    static String url = "jdbc:mysql://localhost:3306/studentmanagement";
     static String user = "root";
 
     public static List<StudentCourse> getStudentCourse(){
@@ -37,7 +41,7 @@ public class StreamUtility {
                 ));
             }
         }catch(SQLException e){
-            System.out.println("Inside getStudentCourse -> StreamUtility "+ e.getMessage());
+            logger.error("Error in getStudentCourse: {}", e.getMessage(), e);
         }
         return list;
     }

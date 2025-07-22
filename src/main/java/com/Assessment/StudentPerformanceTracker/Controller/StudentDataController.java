@@ -23,7 +23,7 @@ public class StudentDataController {
         return MarksUtility.getAverageMarkPerSubject();
     }
 
-    @RequestMapping("/getAvgEnrollment")
+    @RequestMapping("/getEnrollment")
     public List<AvgMarksCourse> getAvgEnrollment(){
         return MarksUtility.getAvgEnrollment();
     }

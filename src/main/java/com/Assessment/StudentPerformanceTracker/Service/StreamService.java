@@ -18,12 +18,9 @@ public class StreamService {
     static List<Marks> marks ;
     static List<Course> courses ;
 
-    static Comparator<Marks> comparator = new Comparator<Marks>() {
-        @Override
-        public int compare(Marks o1, Marks o2) {
+    static Comparator<Marks> comparator = (Marks o1, Marks o2) -> {
             return o2.getMarks()-o1.getMarks();
-        }
-    };
+        };
 
     static {
         students= StudentUtility.getAllStudentList();
@@ -50,6 +47,7 @@ public class StreamService {
         Map<Integer,Student> studentMap = new HashMap<>();
         students.forEach(student -> studentMap.put(student.getId(), student));
         Map<Integer,List<Student>> map = new HashMap<>();
+        Collections.sort(marks, (Marks m1, Marks m2) -> m2.getMarks()- m1.getMarks());
         marks.forEach(mark -> {
             map.computeIfAbsent(mark.getMarks(), k -> new ArrayList<>())
                     .add(studentMap.get(mark.getStudentId()));
@@ -64,7 +62,7 @@ public class StreamService {
                 .toList();
     }
 
-    public static Map<Integer,List<Marks>> getTopRankersPerCourse(){
+    public static Map<Integer,List<Marks>>  getTopRankersPerCourse(){
         Map<Integer,List<Marks>> map = new HashMap<>();
         Map<Integer,List<Marks>> res = new HashMap<>();
         marks.stream()

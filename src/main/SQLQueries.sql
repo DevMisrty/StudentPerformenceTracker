@@ -42,7 +42,7 @@ create table student_course(
 	s_id int,
     c_id int,
     grade int,
-    foreign key (s_id) references student(id) ,
+    foreign key (s_id) references student(id) ON Delete Cascade,
     foreign key (c_id) references course(id),
     primary key (s_id,c_id)
 );
