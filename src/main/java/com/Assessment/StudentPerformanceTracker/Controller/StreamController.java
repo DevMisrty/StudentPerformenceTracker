@@ -30,10 +30,10 @@ public class StreamController {
         return StreamService.getStudentCourse();
     }
 
-    @RequestMapping("/avgOfGrade")
-    public Double getAverageMarks(){
-        return StreamService.getAverageGrade();
-    }
+//    @RequestMapping("/avgOfGrade")
+//    public Double getAverageMarks(){
+//        return StreamService.getAverageGrade();
+//    }
 
     @RequestMapping("/getTopScorers")
     public Map<Integer,List<Marks>> getTopScorers(){
